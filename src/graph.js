@@ -10,6 +10,9 @@ const parseList = function(list){
 }
 
 const bfs = function(pairs,source,target){
+  if(pairs.length == 1 && source == target && pairs[0][0] != pairs[0][1]){
+    return false;
+  }
   const paths = parseList(pairs);
   let toVisit = [source];
   const visited = [];

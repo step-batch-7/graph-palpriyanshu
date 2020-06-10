@@ -1,13 +1,14 @@
 const parseList = function(list){
-  const relations = {}
+  const routes = {}
   list.forEach(([source, destination]) => {
-    if(!relations.hasOwnProperty(source)){
-      relations[source] = [];
+    if(!routes.hasOwnProperty(source)){
+      routes[source] = [];
     }
-    relations[source].push(destination);
+    routes[source].push(destination);
   });
-  return relations;
+  return routes;
 }
+
 const bfs = function(pairs,source,target){
   const paths = parseList(pairs);
   let toVisit = [source];
@@ -19,9 +20,10 @@ const bfs = function(pairs,source,target){
     }
     visited.push(node);
     if(paths[node]){
-      toVisit = toVisit.concat(paths[node].filter(n => toVisit && !toVisit.includes(n) && !visited.includes(n)));
+      toVisit = toVisit.concat(paths[node].filter(n => !toVisit.includes(n) && !visited.includes(n)));
     }
   }
   return false;
 };
+
 module.exports = {bfs};

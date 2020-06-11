@@ -19,8 +19,8 @@ const bfs = function(pairs,source,target){
       return true;
     }
     visited.push(node);
-    if(pairs[source]){
-      toVisit = toVisit.concat(paths[source].filter(n => !toVisit.includes(n) && !visited.includes(n)));
+    if(paths[node]){
+      toVisit = toVisit.concat(paths[node].filter(n => !toVisit.includes(n) && !visited.includes(n)));
     }
   }
   return false;

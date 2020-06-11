@@ -25,6 +25,11 @@ describe("BFS",function() {
 
   it("should give false for two nodes not connected", function(){
     const routes = [["aa","bb"],["aa","cc"]];
+    assert.notOk(bfs(routes, "bb","cc"))
+  })
+
+  it("should give false if source is not present", function(){
+    const routes = [["aa","bb"],["aa","cc"]];
     assert.notOk(bfs(routes, "dd","cc"))
   })
 });

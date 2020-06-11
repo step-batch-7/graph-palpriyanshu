@@ -11,16 +11,17 @@ const parseList = function(list){
 
 const bfs = function(pairs,source,target){
   const paths = parseList(pairs);
-  let toVisit = [source];
+  let toVisit = paths[source] || [];
   const visited = [];
   while(toVisit.length){
     const node = toVisit.shift();
-    const neighbours = paths[node] || [];
-    if(neighbours.includes(target)){
+    if(node == target){
       return true;
     }
     visited.push(node);
-    toVisit = toVisit.concat(neighbours.filter(n => !toVisit.includes(n) && !visited.includes(n)));
+    if(pairs[source]){
+      toVisit = toVisit.concat(paths[source].filter(n => !toVisit.includes(n) && !visited.includes(n)));
+    }
   }
   return false;
 };

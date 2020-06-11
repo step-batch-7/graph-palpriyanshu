@@ -33,7 +33,6 @@ describe("BFS",function() {
     assert.notOk(bfs(routes, "dd","cc"))
   })
 
-
   it('three nodes moderately connected', function () {
     const paths = [ ['aa', 'bb'], ['bb', 'cc'], ['cc', 'bb'] ];
     assert.isTrue(bfs(paths, 'aa', 'bb'));
@@ -45,6 +44,4 @@ describe("BFS",function() {
     assert.isFalse(bfs(paths, 'bb', 'aa'));
     assert.isFalse(bfs(paths, 'aa', 'aa'));
   });
-
-
 });

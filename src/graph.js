@@ -12,15 +12,15 @@ const parseList = function(list){
 const bfs = function(pairs,source,target){
   const paths = parseList(pairs);
   let toVisit = paths[source] || [];
-  const visited = [];
+  const visited = new Set();
   while(toVisit.length){
     const node = toVisit.shift();
     if(node == target){
       return true;
     }
-    visited.push(node);
+    visited.add(node);
     if(paths[node]){
-      toVisit = toVisit.concat(paths[node].filter(n => !toVisit.includes(n) && !visited.includes(n)));
+      toVisit = toVisit.concat(paths[node].filter(n => !toVisit.includes(n) && !visited.has(n)));
     }
   }
   return false;

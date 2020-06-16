@@ -34,14 +34,14 @@ describe("BFS",function() {
   })
 
   it('three nodes moderately connected', function () {
-    const paths = [ ['aa', 'bb'], ['bb', 'cc'], ['cc', 'bb'] ];
-    assert.isTrue(bfs(paths, 'aa', 'bb'));
-    assert.isTrue(bfs(paths, 'bb', 'cc'));
-    assert.isTrue(bfs(paths, 'aa', 'cc'));
-    assert.isTrue(bfs(paths, 'cc', 'bb'));
-    assert.isTrue(bfs(paths, 'cc', 'cc'));
-    assert.isTrue(bfs(paths, 'bb', 'bb'));
-    assert.isFalse(bfs(paths, 'bb', 'aa'));
-    assert.isFalse(bfs(paths, 'aa', 'aa'));
+    const routes = [ ['aa', 'bb'], ['bb', 'cc'], ['cc', 'bb'] ];
+    assert.isTrue(bfs(routes, 'aa', 'bb'));
+    assert.isTrue(bfs(routes, 'bb', 'cc'));
+    assert.isTrue(bfs(routes, 'aa', 'cc'));
+    assert.isTrue(bfs(routes, 'cc', 'bb'));
+    assert.isTrue(bfs(routes, 'cc', 'cc'));
+    assert.isTrue(bfs(routes, 'bb', 'bb'));
+    assert.isFalse(bfs(routes, 'bb', 'aa'));
+    assert.isFalse(bfs(routes, 'aa', 'aa'));
   });
 });

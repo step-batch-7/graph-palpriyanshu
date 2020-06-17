@@ -26,21 +26,19 @@ const bfs = function(pairs,source,target){
   return false;
 };
 
-const dfs = function(graph, source, target, visited){
+const dfs = function (graph, source, target, visited) {
   const neighbours = (graph[source] || []).slice();
-  if(visited.includes(source)){
-    return false;
-  } 
-
-  visited.push(source);
-  if(neighbours.includes(target)){
+  if (neighbours.includes(target)) {
     return true;
   }
-
-  while(neighbours.length){
-    const toVisit = neighbours.pop();
-    return dfs(graph, toVisit, target, visited);
+  visited.push(source);
+  while (neighbours.length) {
+    const toVisit = neighbours.shift();
+    if (!visited.includes(toVisit) && dfs(graph, toVisit, target, visited)) {
+      return true;
+    }
   }
-}
+  return false;
+};
 
 module.exports = {bfs, dfs, parseList};

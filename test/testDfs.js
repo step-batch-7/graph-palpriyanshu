@@ -32,12 +32,6 @@ describe("DFS",function() {
     assert.notOk(dfs(graph, "bb","cc",[]))
   })
 
-  it("should give false if source is not present", function(){
-    const pairs = [["aa","bb"],["aa","cc"]];
-    const graph = parseList(pairs);
-    assert.notOk(dfs(graph, "dd","cc",[]))
-  })
-
   it('three nodes moderately connected', function () {
     const pairs = [ ['aa', 'bb'], ['bb', 'cc'], ['cc', 'bb'] ];
     const graph = parseList(pairs);
